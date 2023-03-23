@@ -12,5 +12,9 @@ while True:
 	products.append(p)
 	# products.append([name, price]) 等於line 8-10, 12
 print(products)
+# products[0][0] # 存取大清單(index 0)內的二維清單(index 0)
 
-products[0][0] # 存取大清單(index 0)內的二維清單(index 0)
+for p in products:
+	# print(p) # 列印出大清單裡的東西，即二維清單
+	# print(p[0]) # 列印出每一個二維清單的index 0
+	print(p[0], '的價格是', p[1])
