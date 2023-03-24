@@ -1,5 +1,14 @@
-# 建立記帳程式
+# 讀取檔案
 products = []
+with open('products.csv', 'r') as f:
+	for line in f:
+		if '商品,價格' in line:
+			continue # 繼續，跳到下一次迴圈
+		name, price = line.strip().split(',') # 字串以「,」做切割，分別存成 name price
+		products.append([name, price])
+print(products)
+
+# 讓使用者輸入
 while True:
 	name = input('請輸入商品名稱: ')
 	if name == 'q':
@@ -15,11 +24,13 @@ while True:
 print(products)
 # products[0][0] # 存取大清單(index 0)內的二維清單(index 0)
 
+# 印出所有購買紀錄
 for p in products:
 	# print(p) # 列印出大清單裡的東西，即二維清單
 	# print(p[0]) # 列印出每一個二維清單的index 0
 	print(p[0], '的價格是', p[1])
 
+# 寫入檔案
 with open('products.csv', 'w') as f:
 # 寫入和讀取檔案的時候，都會涉及編碼，所以建議在'w'之後設定編碼 'w', encoding = 'utf-8'
 	f.write('商品,價格\n')
